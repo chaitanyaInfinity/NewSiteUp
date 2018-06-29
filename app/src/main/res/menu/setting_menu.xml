@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/bound_rate"
+        android:title="Baud Rate"/>
+
+    <item
+        android:id="@+id/data_bits"
+        android:title="Data Bits"/>
+
+    <item
+        android:id="@+id/parity"
+        android:title="Parity"/>
+
+    <item
+        android:id="@+id/stop_bits"
+        android:title="Stop Bits"/>
+
+
+
+</menu>

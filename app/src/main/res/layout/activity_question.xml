@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/view_main_question"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray">
+
+        <LinearLayout
+            android:id="@+id/ll_tv_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_gray">
+
+            <TextView
+                android:id="@+id/tv_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl_question_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_tv_header">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_assigned_sites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:scrollbars="vertical" />
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_location"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Latitude"
+                    android:textColor="@color/colorBlack" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Longitude"
+                    android:textColor="@color/colorBlack" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_box_lat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_textbox"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tv_box_long"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_textbox"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@color/dark_gray"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rb_pass_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_fail_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Submit Location"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank1"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_question_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_info_comment"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/information"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Comment"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/edt_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/squre_corner_white_background"
+                    android:gravity="start"
+                    android:hint="Write comment here"
+                    android:imeOptions="actionDone"
+                    android:minHeight="100dp"
+                    android:padding="5dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/dark_gray"
+                    android:textColorHint="@color/dark_gray" />
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rb_pass_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_fail_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Comment"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/view_router_configuration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank6"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank6"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_question_router_config"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_info_router_config"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/information"
+                        android:visibility="gone" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_setting"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:onClick="showPopup"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/setting"
+                        android:visibility="visible" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_enable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Enable"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+
+                    <Button
+                        android:id="@+id/btn_exit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Exit"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+
+                    <Button
+                        android:id="@+id/btn_configure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Configure"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+
+                    <ImageButton
+                        android:id="@+id/btn_submit"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/enter_button" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/btn_username"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:text="Username"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+
+                    <Button
+                        android:id="@+id/btn_password"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Password"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Output"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp" />
+
+
+                <ScrollView
+                    android:id="@+id/sv_demoScroller"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/colorBlack">
+
+                    <TextView
+                        android:id="@+id/tv_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:textIsSelectable="true"
+                        android:typeface="monospace" />
+
+
+                </ScrollView>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/colorBlack"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/tv_input_command"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:hint="Command Input" />
+
+
+                <Button
+                    android:id="@+id/btn_upload"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/upload"
+                    android:textAllCaps="false"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Comment"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/edt_router_command"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/squre_corner_white_background"
+                android:gravity="start"
+                android:imeOptions="actionDone"
+                android:minHeight="50dp"
+                android:padding="5dp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/dark_gray"
+                android:textColorHint="@color/dark_gray" />
+
+            <RadioGroup
+                android:id="@+id/rg_router_config"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rbPassedRouter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rbFailedRouter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitRouterConfig"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Results"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/view_question"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank2"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank2"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_to_swipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_question"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                            android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                            android:layout_marginTop="35dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+
+                        <ImageButton
+                            android:id="@+id/ib_info_question"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="35dp"
+                            android:adjustViewBounds="true"
+                            android:background="@color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/information"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+
+                    <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/radioGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        segmentedgroup:sc_border_width="1dp"
+                        segmentedgroup:sc_checked_text_color="@color/colorWhite"
+                        segmentedgroup:sc_corner_radius="10dp"
+                        segmentedgroup:sc_tint_color="@color/green">
+
+                        <RadioButton
+                            android:id="@+id/radioButton1"
+                            style="@style/RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:id="@+id/radioButton2"
+                            style="@style/RadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="No" />
+                    </info.hoang8f.android.segmented.SegmentedGroup>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/vertical_extra_extra_space_between_views"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="@dimen/vertical_extra_extra_space_between_views"
+                        android:background="@drawable/spinner_background">
+
+                        <Spinner
+                            android:id="@+id/spinner_question"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginTop="10dp"
+                            android:backgroundTint="@color/dark_gray"
+                            android:popupBackground="@color/light_gray" />
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+                        android:text="Remarks"
+                        android:textColor="@color/dark_gray" />
+
+                    <EditText
+                        android:id="@+id/edt_question_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:backgroundTint="@color/dark_gray"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textColor="@color/colorBlack"
+                        android:textCursorDrawable="@color/dark_gray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rb_pass_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_fail_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Answer"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank3"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank3"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_question_camera"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_info_camera"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/information"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginTop="@dimen/vertical_extra_extra_space_between_views"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_camera_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="2dp"
+                        android:background="@drawable/background"
+                        android:src="@drawable/camera" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center"
+                        android:text="Tap to capture Photo"
+                        android:textColor="@color/dark_gray" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+                        android:text="Comment"
+                        android:textColor="@color/dark_gray" />
+
+                    <EditText
+                        android:id="@+id/et_comment_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/dark_gray"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textColor="@color/colorBlack"
+                        android:textCursorDrawable="@color/dark_gray"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+
+                <RadioGroup
+                    android:id="@+id/rg_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbPassedCam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:buttonTint="@color/dark_green"
+                        android:checked="true"
+                        android:text="Passed"
+                        android:textColor="@color/dark_green" />
+
+
+                    <RadioButton
+                        android:id="@+id/rbFailedCam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:buttonTint="@color/colorRed"
+                        android:text="Failed"
+                        android:textColor="@color/colorRed" />
+
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnSubmitCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Photo"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/view_barcode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank4"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank4"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_question_barcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_info_barcode"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/information"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginTop="40dp"
+                    android:text="Enter or Scan Barcode"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary" />
+
+
+                <EditText
+                    android:id="@+id/et_router_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/vertical_extra_extra_space_between_views"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginTop="@dimen/vertical_extra_extra_space_between_views"
+                    android:background="@drawable/otp_border"
+                    android:gravity="center"
+                    android:hint="@string/enter_number"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:textColor="@color/dark_gray"
+                    android:textColorHint="@color/dark_gray"
+                    android:textSize="18sp" />
+
+
+                <Button
+                    android:id="@+id/btn_router_barcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/vertical_extra_extra_space_between_views"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:background="@color/green"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Scan Barcode"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite" />
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg_barcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rb_pass_barcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_fail_barcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitBarcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Barcode"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/view_signature"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/blank5"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/blank5"
+            android:background="@drawable/rounded_corners"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_question_signature"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                        android:layout_marginTop="35dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/dark_gray"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_info_signature"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="35dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/information"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginTop="@dimen/vertical_space_between_views"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+
+
+                    <com.github.gcacace.signaturepad.views.SignaturePad xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/signature_pad"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="2dp"
+                        android:background="@color/light_gray"
+                        app:penColor="@android:color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:gravity="center"
+                        android:text="Please draw your signature here"
+                        android:textColor="@color/dark_gray" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                    android:layout_marginTop="@dimen/vertical_space_between_views"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.5"
+                        android:minHeight="30dp"
+                        android:text="Clear"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+                    <Button
+                        android:id="@+id/btn_save"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="0.5"
+                        android:minHeight="30dp"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/rg_signature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <RadioButton
+                    android:id="@+id/rb_pass_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:buttonTint="@color/dark_green"
+                    android:checked="true"
+                    android:text="Passed"
+                    android:textColor="@color/dark_green" />
+
+
+                <RadioButton
+                    android:id="@+id/rb_fail_signature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:buttonTint="@color/colorRed"
+                    android:text="Failed"
+                    android:textColor="@color/colorRed" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btnSubmitSignature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Submit Photo"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/layout_include_loader_view" />
+
+
+</FrameLayout>

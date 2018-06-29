@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "600661152673",
+    "firebase_url": "https://ip-ran-ffe28.firebaseio.com",
+    "project_id": "ip-ran-ffe28",
+    "storage_bucket": "ip-ran-ffe28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600661152673:android:6477bdf281c93a9a",
+        "android_client_info": {
+          "package_name": "com.example.infinitylabs.dynamictrackerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600661152673-dh4fb490j9rmpkh7rrps9j1f6imbv1kl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBllMwJbwwy1LcdXWL09m3IxYxBLvjr8G8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

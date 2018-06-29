@@ -1,0 +1,158 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context="com.example.infinitylabs.dynamictrackerapp.view.login.LoginFragment">
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:textAlignment="textEnd"/>
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_logo"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/blue"
+            android:text="Password" />
+
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_marginTop="@dimen/vertical_space_between_views"
+            android:background="@drawable/edittext_border"
+            android:gravity="center"
+            android:hint="Enter Password"
+            android:textColorHint="@color/btwn_light_and_dark_gray"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textColor="@color/blue"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+            android:orientation="horizontal">
+
+
+            <CheckBox
+                android:id="@+id/cb_remember_me"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/remember_me"
+                android:layout_gravity="start"
+                android:padding="10dp"
+                android:buttonTint="@color/blue"
+                android:layout_marginTop="@dimen/vertical_space_between_views"
+                android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                android:textColor="@color/blue" />
+
+
+
+            <CheckBox
+                android:id="@+id/cb_show_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_password"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:buttonTint="@color/blue"
+                android:layout_marginTop="@dimen/vertical_space_between_views"
+                android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+                android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+                android:textColor="@color/blue" />
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+            android:layout_gravity="end"
+            android:padding="10dp"
+            android:textColor="@color/blue"
+            android:text="@string/forgot_password"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="@dimen/vertical_extra_space_between_views"
+        android:layout_marginRight="@dimen/vertical_extra_space_between_views"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/ripple_effect"
+        android:text="Submit"
+        android:textColor="@color/colorWhite" />
+
+
+</RelativeLayout>

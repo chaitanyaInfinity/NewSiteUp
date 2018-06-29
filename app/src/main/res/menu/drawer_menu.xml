@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_menu_apply"
+            android:checked="false"
+            android:title="APPLY" />
+        <item
+            android:id="@+id/nav_menu_dashboard"
+            android:checked="false"
+            android:title="DASHBOARD" />
+
+        <item
+            android:id="@+id/nav_menu_sync_img"
+            android:checked="false"
+            android:title="SYNC NOW" />
+
+        <item
+            android:id="@+id/nav_menu_asset_master"
+            android:checked="false"
+            android:title="ASSET MASTER" />
+
+        <item
+            android:id="@+id/nav_menu_change_password"
+            android:checked="false"
+            android:title="CHANGE PASSWORD" />
+
+        <item
+            android:id="@+id/nav_menu_emi_calculator"
+            android:checked="false"
+            android:title="EMI CALCULATOR" />
+
+        <item
+            android:id="@+id/nav_menu_version_properties"
+            android:checked="false"
+            android:title="VERSION" />
+
+        <item
+            android:id="@+id/nav_menu_logout"
+            android:checked="false"
+            android:title="LOGOUT" />
+    </group>
+</menu>

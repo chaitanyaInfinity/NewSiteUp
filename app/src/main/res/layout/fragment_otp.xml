@@ -1,0 +1,204 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray">
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"/>
+
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo"
+        android:text="@string/site_up"
+        android:textStyle="bold"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textAlignment="center"/>
+
+
+    <TextView
+        android:id="@+id/tv_qustion_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_logo"
+        android:layout_marginBottom="@dimen/vertical_extra_space_between_views"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginTop="30dp"
+        android:text="@string/what_is_your_phone_number"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/et_mobile_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_qustion_phone_number"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginTop="@dimen/vertical_extra_space_between_views"
+        android:background="@drawable/edittext_border"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textColorHint="@color/hint_color"
+        android:hint="@string/enter_mobile_muber"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_otp_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_mobile_number"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/et_otp_digit1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_otp_digit2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_otp_digit3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_otp_digit4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_otp_digit5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_otp_digit6"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/dark_gray"
+            android:background="@drawable/otp_border"
+            android:gravity="center"
+            android:imeOptions="flagNoExtractUi"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_submit_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/submit_otp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:visibility="invisible" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_get_otp_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="@dimen/DimenHorizontalSpacingScreen"
+        android:layout_marginRight="@dimen/DimenHorizontalSpacingScreen"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/get_otp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:visibility="visible" />
+
+
+</RelativeLayout>
